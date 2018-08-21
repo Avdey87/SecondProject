@@ -32,23 +32,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-<<<<<<< HEAD
 
-=======
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-                View search = findViewById(R.id.settingsFragment)
+        View search = findViewById(R.id.settingsFragment);
                  switch (item.getItemId()) {
             case R.id.settings:
                 Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.search:
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.containerFragment, search)
-                        .addToBackStack(SettingsFragment.class.getName())
-                        .commit();
 
                 Toast.makeText(this, R.string.search, Toast.LENGTH_SHORT).show();
                 break;
@@ -61,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
->>>>>>> 7d6349274c8dd0cc3c88079bca14c9ecbb5b8d2d
+
 
         
 }

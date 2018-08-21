@@ -11,16 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-<<<<<<< HEAD
+
+
 
 public class MainFragment extends Fragment {
 
 
-=======
-public class MainFragment extends Fragment {
-
-
->>>>>>> 7d6349274c8dd0cc3c88079bca14c9ecbb5b8d2d
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

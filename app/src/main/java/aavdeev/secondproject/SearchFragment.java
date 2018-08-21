@@ -15,11 +15,7 @@ public class SearchFragment extends Fragment {
     public static String SEARCH_MESSAGE = "Search message";
     private EditText editText;
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 7d6349274c8dd0cc3c88079bca14c9ecbb5b8d2d
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
