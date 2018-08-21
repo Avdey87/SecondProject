@@ -1,5 +1,7 @@
 package aavdeev.secondproject;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -27,25 +29,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-                 switch (item.getItemId()) {
-            case R.id.settings:
-                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
 
-                break;
-            case R.id.search:
-                Toast.makeText(this, R.string.search, Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.exit:
-                Toast.makeText(this, R.string.exit, Toast.LENGTH_SHORT).show();
-                finish();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 
