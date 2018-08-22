@@ -17,12 +17,17 @@ import android.widget.Toast;
 
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SingleFragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected android.support.v4.app.Fragment getFragment() {
+        return null;
     }
 
     @Override
@@ -35,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        View search = findViewById(R.id.settingsFragment);
-                 switch (item.getItemId()) {
+                        switch (item.getItemId()) {
             case R.id.settings:
                 Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
 
