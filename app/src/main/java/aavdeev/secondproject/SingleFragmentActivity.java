@@ -10,15 +10,21 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_fragment);
+        setContentView(R.layout.single_fragment);
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.singleFragmentContainer, getFragment())
+                    .replace(R.id.fragmentContainer, getFragment())
+                    .addToBackStack(MainFragment.class.getName())
                     .commit();
         }
     }
 
     protected abstract Fragment getFragment();
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

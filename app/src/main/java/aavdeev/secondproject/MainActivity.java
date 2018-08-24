@@ -1,34 +1,18 @@
 package aavdeev.secondproject;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterViewAnimator;
 import android.widget.Toast;
 
-import java.util.zip.Inflater;
 
 public class MainActivity extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected android.support.v4.app.Fragment getFragment() {
+        return MainFragment.newInstance();
     }
 
-    @Override
-    protected android.support.v4.app.Fragment getFragment() {
-        return null;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,11 +26,20 @@ public class MainActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
                         switch (item.getItemId()) {
             case R.id.settings:
+                getSupportFragmentManager().
+                        beginTransaction().
+                        replace(R.id.fragmentContainer, SettingsFragment.newInstance())
+                        .addToBackStack(SettingsFragment.class.getName())
+                        .commit();
                 Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.search:
-
+                getSupportFragmentManager().
+                        beginTransaction().
+                        replace(R.id.fragmentContainer, SearchFragment.newInstance())
+                        .addToBackStack(SearchFragment.class.getName())
+                        .commit();
                 Toast.makeText(this, R.string.search, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.exit:
@@ -60,5 +53,5 @@ public class MainActivity extends SingleFragmentActivity {
     }
 
 
-        
+
 }
