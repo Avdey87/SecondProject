@@ -52,7 +52,7 @@ public class SearchFragment extends Fragment {
                     search = "https://google.com/search?q=" + editText.getText().toString();
                     break;
                 case "Yandex":
-                    search = "https://yandex.ru/search?q=" + editText.getText().toString();
+                    search = "https://www.yandex.ru/search?text=" + editText.getText().toString();
                     break;
                 case "Bing":
                     search = "https://bing.com/search?q=" + editText.getText().toString();
