@@ -16,7 +16,6 @@ import java.util.Objects;
 public class SearchFragment extends Fragment {
 
     private SharedPreferencesHelper sharedPreferencesHelper;
-    public static String SEARCH_MESSAGE = "Search message";
     private EditText editText;
     private Button searchButton;
 
@@ -28,7 +27,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        sharedPreferencesHelper= new SharedPreferencesHelper(Objects.requireNonNull(getActivity()));
+        sharedPreferencesHelper= new SharedPreferencesHelper((getActivity()));
         editText = view.findViewById(R.id.editText);
         searchButton = view.findViewById(R.id.searchButton);
         searchButton.setOnClickListener(searchButtonClickListener);
@@ -45,11 +44,21 @@ public class SearchFragment extends Fragment {
     }
 
     private View.OnClickListener searchButtonClickListener = new View.OnClickListener() {
-
-
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Uri.parse(SharedPreferencesHelper.SETTINGS_KEY.toString())+editText.getText().toString()));
+            String search = "";
+            switch (sharedPreferencesHelper.getSettingsKey()) {
+                case "Google":
+                    search = "https://google.com/search?q=" + editText.getText().toString();
+                    break;
+                case "Yandex":
+                    search = "https://yandex.ru/search?q=" + editText.getText().toString();
+                    break;
+                case "Bing":
+                    search = "https://bing.com/search?q=" + editText.getText().toString();
+            }
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(search));
             startActivity(intent);
         }
     };
